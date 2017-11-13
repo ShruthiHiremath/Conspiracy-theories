@@ -1,4 +1,4 @@
-# Social-Computing-Project<br/>
+# Conspiracy theories on reddit <br/>
 <b>Progress Steps :</b><br/>
 1. Used  - https://pushshift.io/ to get the data from the google bigquery<br/>
 2. Since the number of instances returned is large hence it cannot be directly stored as a CSV file. So this had to be first stored in the cloud storage by creating a bucket and a project within the bucket. The files were then 'exported' to this folder in the bucket. They were then downloaded from there in the csv format<br/>
@@ -107,4 +107,4 @@ Location of script : flashmob01 has this script.<br/>
 1. This describes the proposal of work that I intend to accomplish to make sense out of the data I have obtained so far.<br/>
 2. The points are jotted down in the file Future Work.md
 <br/>
-# Conspiracy-theories
+
