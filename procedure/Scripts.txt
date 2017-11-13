@@ -1,0 +1,19 @@
+1. To get the subreddit data : Get Reddit data from google big query - https://pushshift.io/
+
+2. Subreddits identified - r/Conspiracy and r/ConspiracyAMA
+
+3. Comments and Submissions from r/Conspiracy
+SELECT * FROM [pushshift:rt_reddit.comments] WHERE subreddit = "conspiracy"; 
+SELECT * FROM [pushshift:rt_reddit.submissions] WHERE subreddit ="conspiracy" ;
+
+4. Comments and Submissions from r/ConspiracyAMA
+SELECT * FROM [pushshift:rt_reddit.comments] WHERE subreddit ="ConspiracyAMA" ;
+SELECT * FROM [pushshift:rt_reddit.submissions] WHERE subreddit ="ConspiracyAMA" ;
+
+5. To obtain the unique users for r/Conspiracy
+SELECT  unique(author) FROM [reddit-143620:comments_conspiracy.conspiracy_comments]
+SELECT  unique(author) FROM [reddit-143620:comments_conspiracy.conspiracy_submissions]
+
+6. To obtaine number of posts and comments per unique user
+SELECT  count(*), author FROM [reddit-143620:comments_conspiracy.conspiracy_comments] group by author
+SELECT  count(*), author FROM [reddit-143620:comments_conspiracy.conspiracy_submissions] group by author

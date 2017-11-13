@@ -1,0 +1,17 @@
+For obtaining the user timelines these are the steps I have followed:
+Unique_Users is my table that contains the unique users across the comments and the submissions
+1. SELECT * FROM [fh-bigquery:reddit_comments.2009] WHERE author in (select Users from comments_conspiracy.Unique_Users)
+(Change the year from 2009 - 2016-08).
+OR
+1.SELECT * FROM [fh-bigquery:reddit_posts.full_corpus_201512] WHERE author in (select Users from comments_conspiracy.Unique_Users);
+(For the full corpus data)
+2. Run the query and save the result as a table --> Show Options -->Select Destination Table -->Check 'Allow Large Results' in the Result Size
+--> Uncheck Flatten results in Results Schema --> Run Query
+3. Once the table is created --> Export Table --> For the google cloud storage uri give the value -->  
+reddit-data-conspiracy/?project=reddit-143620/filename-*.csv(it stores it in parts) --> Ok
+4. Once the job is run go to the google cloud storage location and download the CSV files manually to your local machine
+5. Upload these files to the server.
+
+I have completed collecting all the user timelines:
+flashmob00 has data from 2009-2011
+flashmob01 has data from 2012-2016 and the full corpus
